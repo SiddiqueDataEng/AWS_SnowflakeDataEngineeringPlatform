@@ -1,0 +1,186 @@
+P_PARTKEY,P_NAME,P_CATEGORY,P_BRAND,P_TYPE,P_SIZE,P_RETAILPRICE,P_COMMENT
+1,Samsung Galaxy A54,Mobile Phones,Brand-D,Imported,10,86921.67,Door tonight talk law.
+2,Samsung Galaxy A54,Mobile Phones,Brand-C,Local,42,81974.41,Three just there general actually various.
+3,Samsung Galaxy A54,Mobile Phones,Brand-A,Imported,43,77633.56,Agent sport issue.
+4,Samsung Galaxy A54,Mobile Phones,Brand-B,Premium,3,79935.34,Apply cut finally.
+5,Samsung Galaxy A54,Mobile Phones,Brand-D,Premium,7,77040.89,Never book space great building deep.
+6,Xiaomi Redmi Note 12,Mobile Phones,Brand-D,Local,34,46115.73,Between have determine fund race series.
+7,Xiaomi Redmi Note 12,Mobile Phones,Brand-E,Economy,4,43797.19,Foreign official man light well.
+8,Xiaomi Redmi Note 12,Mobile Phones,Brand-E,Standard,1,48871.9,Many among surface.
+9,Xiaomi Redmi Note 12,Mobile Phones,Brand-B,Local,6,44712.53,Sea various between majority build movie.
+10,Xiaomi Redmi Note 12,Mobile Phones,Brand-A,Economy,36,47191.3,Event behind improve other several.
+11,Vivo V25,Mobile Phones,Brand-D,Economy,46,50141.3,Without event hot dark.
+12,Vivo V25,Mobile Phones,Brand-E,Economy,34,49947.18,Manage mind under clear college hair.
+13,Vivo V25,Mobile Phones,Brand-A,Economy,5,59890.64,Would entire result guess reach southern.
+14,Vivo V25,Mobile Phones,Brand-E,Standard,7,57476.89,Avoid maybe pick after son.
+15,Vivo V25,Mobile Phones,Brand-E,Local,13,51624.31,Trade bit teach right.
+16,Oppo Reno 8,Mobile Phones,Brand-B,Imported,41,70817.54,Position science likely free international.
+17,Oppo Reno 8,Mobile Phones,Brand-E,Imported,27,68199.41,Mother manager from.
+18,Oppo Reno 8,Mobile Phones,Brand-E,Economy,44,64463.37,Church religious significant.
+19,Oppo Reno 8,Mobile Phones,Brand-D,Standard,11,68802.0,Next majority anyone free clear add.
+20,Oppo Reno 8,Mobile Phones,Brand-E,Local,33,62887.67,Full whatever new.
+21,iPhone 13,Mobile Phones,Brand-B,Imported,39,247150.61,Truth population city go crime.
+22,iPhone 13,Mobile Phones,Brand-C,Economy,36,274573.15,Way majority yeah local measure.
+23,iPhone 13,Mobile Phones,Brand-C,Economy,27,263209.22,Conference always theory continue.
+24,iPhone 13,Mobile Phones,Brand-D,Economy,39,237036.13,Reduce court wide talk four.
+25,iPhone 13,Mobile Phones,Brand-E,Premium,25,263285.41,Education western majority.
+26,Tecno Camon 19,Mobile Phones,Brand-C,Economy,29,34632.5,Smile will question responsibility player catch.
+27,Tecno Camon 19,Mobile Phones,Brand-D,Standard,47,31742.64,Capital live glass form capital.
+28,Tecno Camon 19,Mobile Phones,Brand-C,Imported,2,35123.27,Because movie determine.
+29,Tecno Camon 19,Mobile Phones,Brand-C,Standard,20,38390.76,Accept story seek and.
+30,Tecno Camon 19,Mobile Phones,Brand-B,Economy,2,36900.66,Much film without focus yourself water him.
+31,Infinix Note 12,Mobile Phones,Brand-C,Imported,33,38428.06,Group capital them defense.
+32,Infinix Note 12,Mobile Phones,Brand-E,Premium,7,34486.8,New I significant.
+33,Infinix Note 12,Mobile Phones,Brand-C,Premium,9,36213.91,Blood trial myself especially order.
+34,Infinix Note 12,Mobile Phones,Brand-E,Premium,15,36147.45,Son wonder scientist successful.
+35,Infinix Note 12,Mobile Phones,Brand-C,Standard,37,37238.47,Toward huge already evening move.
+36,LG LED TV 43 inch,Electronics,Brand-B,Standard,47,72370.38,Message similar wide discover trade.
+37,LG LED TV 43 inch,Electronics,Brand-D,Premium,32,79885.58,Ten care my shake interview.
+38,LG LED TV 43 inch,Electronics,Brand-E,Standard,39,77133.82,Never particular hold health.
+39,LG LED TV 43 inch,Electronics,Brand-A,Imported,25,68677.16,Building become people pass.
+40,LG LED TV 43 inch,Electronics,Brand-A,Economy,23,80696.89,Any particularly red.
+41,Dawlance AC 1.5 Ton,Electronics,Brand-D,Local,8,102025.94,Real any meeting.
+42,Dawlance AC 1.5 Ton,Electronics,Brand-B,Imported,1,97543.85,Movement get believe magazine.
+43,Dawlance AC 1.5 Ton,Electronics,Brand-D,Standard,20,95463.28,Often politics thought control share.
+44,Dawlance AC 1.5 Ton,Electronics,Brand-C,Imported,37,88342.02,Hope could a industry major.
+45,Dawlance AC 1.5 Ton,Electronics,Brand-E,Premium,10,86459.88,International very of keep on real.
+46,Haier Refrigerator 12 Cu Ft,Electronics,Brand-D,Local,49,66236.72,Congress late prevent west lay.
+47,Haier Refrigerator 12 Cu Ft,Electronics,Brand-E,Standard,15,64115.16,Money keep adult fall.
+48,Haier Refrigerator 12 Cu Ft,Electronics,Brand-D,Premium,9,62870.19,Into administration do several.
+49,Haier Refrigerator 12 Cu Ft,Electronics,Brand-D,Imported,48,59141.04,Expect important law improve any.
+50,Haier Refrigerator 12 Cu Ft,Electronics,Brand-D,Economy,6,63680.85,Kitchen night next world sea personal.
+51,Kenwood Microwave 30L,Electronics,Brand-D,Premium,49,16685.53,While else develop meeting.
+52,Kenwood Microwave 30L,Electronics,Brand-E,Premium,32,17623.15,End first there explain approach ball.
+53,Kenwood Microwave 30L,Electronics,Brand-E,Premium,36,18417.59,Fish gun clearly dog mind work.
+54,Kenwood Microwave 30L,Electronics,Brand-E,Premium,16,16457.92,Themselves help seek either.
+55,Kenwood Microwave 30L,Electronics,Brand-D,Economy,44,19526.9,Many number talk recognize single.
+56,Dell Laptop Core i5,Electronics,Brand-A,Standard,43,117925.97,Its statement machine will describe foot.
+57,Dell Laptop Core i5,Electronics,Brand-C,Economy,13,115697.72,Media quickly wide east explain.
+58,Dell Laptop Core i5,Electronics,Brand-E,Standard,50,115315.65,Door each manager detail.
+59,Dell Laptop Core i5,Electronics,Brand-C,Imported,29,122956.37,Buy catch what east.
+60,Dell Laptop Core i5,Electronics,Brand-D,Standard,15,112792.45,Ability law east.
+61,Orient Split AC 1 Ton,Electronics,Brand-C,Premium,49,83655.79,Power receive bring region.
+62,Orient Split AC 1 Ton,Electronics,Brand-A,Standard,48,72872.61,With reality herself woman almost east.
+63,Orient Split AC 1 Ton,Electronics,Brand-E,Premium,19,72219.73,Today sing cut these it modern.
+64,Orient Split AC 1 Ton,Electronics,Brand-A,Economy,29,79539.04,Phone east wind treat new.
+65,Orient Split AC 1 Ton,Electronics,Brand-C,Premium,48,80608.09,At street president.
+66,Gul Ahmed Lawn 3PC,Clothing,Brand-B,Imported,34,3675.25,Happy over technology impact.
+67,Gul Ahmed Lawn 3PC,Clothing,Brand-E,Local,40,3660.95,Raise beautiful including try hour.
+68,Gul Ahmed Lawn 3PC,Clothing,Brand-B,Standard,25,3558.1,Assume teach trip gun fill.
+69,Gul Ahmed Lawn 3PC,Clothing,Brand-E,Standard,17,3269.22,Voice bill late account and need.
+70,Gul Ahmed Lawn 3PC,Clothing,Brand-C,Premium,45,3582.58,Year when few.
+71,Khaadi Kurta Embroidered,Clothing,Brand-A,Local,42,4900.66,Parent fast report pull.
+72,Khaadi Kurta Embroidered,Clothing,Brand-A,Local,43,4294.18,Marriage hit mother top without federal.
+73,Khaadi Kurta Embroidered,Clothing,Brand-C,Standard,2,4313.25,Will message former ok front during.
+74,Khaadi Kurta Embroidered,Clothing,Brand-D,Premium,25,4507.69,Bit majority ground standard.
+75,Khaadi Kurta Embroidered,Clothing,Brand-A,Economy,32,4830.1,Action performance stock under tell.
+76,J. Slim Fit Jeans,Clothing,Brand-E,Standard,12,3007.28,Develop employee cover.
+77,J. Slim Fit Jeans,Clothing,Brand-D,Imported,46,2893.75,Inside statement certain air claim.
+78,J. Slim Fit Jeans,Clothing,Brand-B,Imported,20,3093.48,East surface American second food.
+79,J. Slim Fit Jeans,Clothing,Brand-D,Premium,2,3101.94,Left forward financial series.
+80,J. Slim Fit Jeans,Clothing,Brand-C,Economy,41,3073.49,Class draw give mother.
+81,Bonanza Shalwar Kameez,Clothing,Brand-E,Economy,4,2870.44,System respond forward agreement.
+82,Bonanza Shalwar Kameez,Clothing,Brand-D,Standard,36,3051.51,Ask color lawyer deal value.
+83,Bonanza Shalwar Kameez,Clothing,Brand-B,Premium,22,3022.42,Painting paper section.
+84,Bonanza Shalwar Kameez,Clothing,Brand-B,Standard,47,2734.04,Everything television history tonight.
+85,Bonanza Shalwar Kameez,Clothing,Brand-E,Premium,27,2654.6,Feel today unit.
+86,Al-Karam Stitched Suit,Clothing,Brand-B,Local,20,5409.74,Country question quality challenge.
+87,Al-Karam Stitched Suit,Clothing,Brand-C,Local,35,4631.77,Source that like born commercial.
+88,Al-Karam Stitched Suit,Clothing,Brand-B,Imported,35,5184.05,Tv agree create.
+89,Al-Karam Stitched Suit,Clothing,Brand-B,Premium,20,5188.53,Cold only face.
+90,Al-Karam Stitched Suit,Clothing,Brand-E,Premium,28,5495.69,Fire resource executive so pretty agency.
+91,Sapphire Winter Shawl,Clothing,Brand-B,Imported,11,2119.7,Southern step onto but gun.
+92,Sapphire Winter Shawl,Clothing,Brand-E,Imported,47,2032.09,Enough example hundred student.
+93,Sapphire Winter Shawl,Clothing,Brand-C,Premium,47,1992.97,Home sell member interest.
+94,Sapphire Winter Shawl,Clothing,Brand-C,Local,27,2113.47,Loss care out not approach region.
+95,Sapphire Winter Shawl,Clothing,Brand-C,Premium,50,2062.69,Too really room budget now line.
+96,Basmati Rice 5kg,Food & Grocery,Brand-B,Premium,2,1262.99,Toward process save life east.
+97,Basmati Rice 5kg,Food & Grocery,Brand-E,Imported,18,1225.35,Wall brother person performance find under.
+98,Basmati Rice 5kg,Food & Grocery,Brand-E,Premium,39,1135.72,Court what true responsibility cultural.
+99,Basmati Rice 5kg,Food & Grocery,Brand-A,Economy,6,1245.15,Experience recognize sometimes write increase work.
+100,Basmati Rice 5kg,Food & Grocery,Brand-D,Premium,33,1283.07,Sure current appear try.
+101,Sunflower Cooking Oil 5L,Food & Grocery,Brand-D,Economy,12,1926.77,Themselves board resource building personal.
+102,Sunflower Cooking Oil 5L,Food & Grocery,Brand-D,Local,9,1678.96,Either conference learn least pass down.
+103,Sunflower Cooking Oil 5L,Food & Grocery,Brand-B,Standard,27,1895.23,Yes remember pattern her.
+104,Sunflower Cooking Oil 5L,Food & Grocery,Brand-A,Economy,27,1700.12,World school study daughter day their.
+105,Sunflower Cooking Oil 5L,Food & Grocery,Brand-B,Premium,5,1683.75,And could other above audience.
+106,National Masala Variety Pack,Food & Grocery,Brand-D,Imported,32,466.91,Significant probably focus person lawyer.
+107,National Masala Variety Pack,Food & Grocery,Brand-D,Premium,28,441.44,Approach land too.
+108,National Masala Variety Pack,Food & Grocery,Brand-A,Imported,48,479.19,Sound protect occur task physical story.
+109,National Masala Variety Pack,Food & Grocery,Brand-C,Local,40,489.52,Something factor provide old.
+110,National Masala Variety Pack,Food & Grocery,Brand-E,Imported,35,452.27,Them officer matter space her.
+111,Tapal Danedar 900g,Food & Grocery,Brand-A,Imported,7,693.23,World left police around eight close senior.
+112,Tapal Danedar 900g,Food & Grocery,Brand-A,Premium,34,705.3,May sign green lawyer set.
+113,Tapal Danedar 900g,Food & Grocery,Brand-A,Imported,25,702.26,Public song week risk rock positive.
+114,Tapal Danedar 900g,Food & Grocery,Brand-A,Premium,19,691.54,Need market step girl.
+115,Tapal Danedar 900g,Food & Grocery,Brand-C,Economy,30,653.31,Seek a opportunity notice.
+116,Nestle Everyday Milk Powder 1kg,Food & Grocery,Brand-C,Imported,4,622.79,Generation chance arm.
+117,Nestle Everyday Milk Powder 1kg,Food & Grocery,Brand-B,Local,42,594.2,Song sound suddenly.
+118,Nestle Everyday Milk Powder 1kg,Food & Grocery,Brand-E,Standard,12,633.45,Upon between century give team trouble.
+119,Nestle Everyday Milk Powder 1kg,Food & Grocery,Brand-E,Premium,26,589.63,Laugh need relationship stuff.
+120,Nestle Everyday Milk Powder 1kg,Food & Grocery,Brand-D,Standard,12,594.44,Sense concern soon step key after.
+121,Olper Milk 1L x12,Food & Grocery,Brand-B,Local,6,1330.02,Course same then.
+122,Olper Milk 1L x12,Food & Grocery,Brand-B,Standard,6,1291.97,Without of open that.
+123,Olper Milk 1L x12,Food & Grocery,Brand-D,Economy,6,1406.67,Real lawyer election compare century trip.
+124,Olper Milk 1L x12,Food & Grocery,Brand-D,Imported,40,1525.93,Miss first according.
+125,Olper Milk 1L x12,Food & Grocery,Brand-D,Imported,25,1272.29,Behind wait thing authority red.
+126,Wheat Seeds 50kg Bag,Agriculture,Brand-B,Economy,37,9131.22,Car generation effect improve bag.
+127,Wheat Seeds 50kg Bag,Agriculture,Brand-B,Premium,10,7954.07,Leader quality appear.
+128,Wheat Seeds 50kg Bag,Agriculture,Brand-A,Local,20,8176.18,Expert common fight summer.
+129,Wheat Seeds 50kg Bag,Agriculture,Brand-D,Economy,41,7957.18,North hospital letter camera alone believe.
+130,Wheat Seeds 50kg Bag,Agriculture,Brand-B,Premium,1,8708.35,Art officer over teach through.
+131,DAP Fertilizer 50kg,Agriculture,Brand-C,Standard,30,11994.31,Measure current address out.
+132,DAP Fertilizer 50kg,Agriculture,Brand-D,Imported,1,12259.16,Prevent indeed beat arrive girl.
+133,DAP Fertilizer 50kg,Agriculture,Brand-D,Premium,14,12213.27,Treat vote arm form home.
+134,DAP Fertilizer 50kg,Agriculture,Brand-D,Local,27,11860.5,Could power factor change thing factor.
+135,DAP Fertilizer 50kg,Agriculture,Brand-E,Imported,1,11387.31,Leader week suffer throughout.
+136,Water Pump Motor 1HP,Agriculture,Brand-E,Economy,40,22566.0,Year machine wind direction.
+137,Water Pump Motor 1HP,Agriculture,Brand-B,Standard,12,20452.33,Traditional heavy rock serious claim.
+138,Water Pump Motor 1HP,Agriculture,Brand-C,Standard,10,23556.85,Road challenge gas north.
+139,Water Pump Motor 1HP,Agriculture,Brand-E,Imported,20,21256.89,Individual decade study.
+140,Water Pump Motor 1HP,Agriculture,Brand-A,Standard,7,21634.61,Rather director would.
+141,Mini Hand Tractor,Agriculture,Brand-B,Premium,44,172237.7,Hour father expect.
+142,Mini Hand Tractor,Agriculture,Brand-E,Imported,36,168387.09,Make yard little see husband.
+143,Mini Hand Tractor,Agriculture,Brand-D,Imported,24,195533.27,Ask although song time order religious.
+144,Mini Hand Tractor,Agriculture,Brand-A,Economy,21,175268.5,Education father break.
+145,Mini Hand Tractor,Agriculture,Brand-D,Standard,49,177383.66,Discussion rule truth order garden.
+146,Pesticide Spray 5L,Agriculture,Brand-E,Standard,19,3479.57,Simply order hit reduce.
+147,Pesticide Spray 5L,Agriculture,Brand-A,Economy,22,3518.94,Short wish together past.
+148,Pesticide Spray 5L,Agriculture,Brand-E,Premium,45,3296.34,Be even of night bed production.
+149,Pesticide Spray 5L,Agriculture,Brand-A,Standard,37,3660.81,Final our image officer.
+150,Pesticide Spray 5L,Agriculture,Brand-E,Standard,31,3656.85,Movement political thing tax network career.
+151,Drip Irrigation Kit,Agriculture,Brand-E,Economy,28,45979.6,Here with assume.
+152,Drip Irrigation Kit,Agriculture,Brand-C,Economy,34,45676.28,Skin recent card top clear summer.
+153,Drip Irrigation Kit,Agriculture,Brand-E,Economy,9,46028.61,Charge often rich career almost most.
+154,Drip Irrigation Kit,Agriculture,Brand-D,Imported,47,46186.72,Hard price will space.
+155,Drip Irrigation Kit,Agriculture,Brand-D,Premium,40,42594.49,Only type parent.
+156,Cotton Yarn 1kg Cone,Textiles,Brand-C,Premium,1,1385.46,Do could line.
+157,Cotton Yarn 1kg Cone,Textiles,Brand-D,Standard,48,1604.42,Some themselves risk.
+158,Cotton Yarn 1kg Cone,Textiles,Brand-E,Local,27,1363.65,Doctor scene visit.
+159,Cotton Yarn 1kg Cone,Textiles,Brand-C,Imported,41,1413.7,Step prove daughter sound certain example.
+160,Cotton Yarn 1kg Cone,Textiles,Brand-B,Economy,17,1587.06,Wrong treatment way weight.
+161,Silk Fabric 5m Roll,Textiles,Brand-C,Economy,33,7574.99,Where author service.
+162,Silk Fabric 5m Roll,Textiles,Brand-A,Standard,44,7249.92,Door open that stay nice despite.
+163,Silk Fabric 5m Roll,Textiles,Brand-D,Imported,40,8190.17,Professional Congress usually individual.
+164,Silk Fabric 5m Roll,Textiles,Brand-B,Premium,22,8000.74,Visit west cell current hair.
+165,Silk Fabric 5m Roll,Textiles,Brand-D,Local,3,7718.48,Name only local city nice.
+166,Denim Fabric 10m,Textiles,Brand-D,Premium,41,8929.11,Over activity certain condition.
+167,Denim Fabric 10m,Textiles,Brand-E,Economy,30,9511.18,Section paper must for.
+168,Denim Fabric 10m,Textiles,Brand-D,Standard,34,8638.82,Hard late police college research.
+169,Denim Fabric 10m,Textiles,Brand-C,Imported,35,8133.69,View total alone middle.
+170,Denim Fabric 10m,Textiles,Brand-E,Economy,23,8219.18,Treat eye month response.
+171,Polyester Thread Set,Textiles,Brand-B,Economy,2,774.26,Town anything bit any music.
+172,Polyester Thread Set,Textiles,Brand-D,Imported,11,811.36,Worker floor economic increase another.
+173,Polyester Thread Set,Textiles,Brand-D,Premium,39,738.7,Road it drug office small commercial.
+174,Polyester Thread Set,Textiles,Brand-C,Economy,46,725.06,Off dinner million bag growth.
+175,Polyester Thread Set,Textiles,Brand-D,Standard,32,860.33,Under her side reflect Congress.
+176,Hand Embroidery Kit,Textiles,Brand-C,Local,20,2358.07,Too leader anything wide student.
+177,Hand Embroidery Kit,Textiles,Brand-C,Premium,8,2437.11,Him camera activity maybe win leg.
+178,Hand Embroidery Kit,Textiles,Brand-A,Premium,6,2471.89,Rise two police off.
+179,Hand Embroidery Kit,Textiles,Brand-A,Local,33,2327.04,So book level girl mission professional.
+180,Hand Embroidery Kit,Textiles,Brand-C,Local,47,2686.94,Produce ahead trip item face event.
+181,Wool Shawl 2m,Textiles,Brand-C,Economy,10,4004.81,Level measure several necessary college remain.
+182,Wool Shawl 2m,Textiles,Brand-A,Imported,44,4174.47,Relationship respond at.
+183,Wool Shawl 2m,Textiles,Brand-B,Standard,30,3714.57,Approach daughter scientist thought Congress million.
+184,Wool Shawl 2m,Textiles,Brand-E,Standard,1,3656.35,Couple bank public entire go.
+185,Wool Shawl 2m,Textiles,Brand-A,Imported,6,3673.3,Early matter idea.
