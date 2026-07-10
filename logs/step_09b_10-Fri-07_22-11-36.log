@@ -1,0 +1,52 @@
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\09_kafka_streaming\pk_kafka_consumer.py:144: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(f"  [FLUSH] {len(buffer)} records committed to SALES_DATA @ {datetime.utcnow().isoformat()[:19]}")
+
+📥  Kafka Consumer → Snowflake Sink (pk-sales-data → SALES_DATA)
+───────────────────────────────────────────────────────
+  Topic     : pk-sales-data
+  Buffer    : 100 records
+  Sink table: SALES_DATA
+
+  [FLUSH] 100 records committed to SALES_DATA @ 2026-07-10T17:15:41
+  [FLUSH] 100 records committed to SALES_DATA @ 2026-07-10T17:15:41
+  [FLUSH] 5 records committed to SALES_DATA @ 2026-07-10T17:15:41
+
+✅  Consumed 205 events → SALES_DATA table
+
+── Sales by City (from stream) ──
+  Faisalabad          20 orders      2,976,421 PKR
+  Karachi             23 orders      2,686,424 PKR
+  Multan              22 orders      2,576,310 PKR
+  Lahore              27 orders      2,462,396 PKR
+  Hyderabad           19 orders      2,319,988 PKR
+  Islamabad           15 orders      2,220,678 PKR
+  Sialkot             18 orders      2,125,216 PKR
+  Peshawar            27 orders      1,869,601 PKR
+  Rawalpindi          21 orders      1,487,459 PKR
+  Quetta              13 orders        853,957 PKR
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\09_kafka_streaming\pk_kafka_consumer.py:144: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(f"  [FLUSH] {len(buffer)} records committed to SALES_DATA @ {datetime.utcnow().isoformat()[:19]}")
+
+📥  Kafka Consumer → Snowflake Sink (pk-sales-data → SALES_DATA)
+───────────────────────────────────────────────────────
+  Topic     : pk-sales-data
+  Buffer    : 100 records
+  Sink table: SALES_DATA
+
+  [FLUSH] 100 records committed to SALES_DATA @ 2026-07-10T17:15:57
+  [FLUSH] 100 records committed to SALES_DATA @ 2026-07-10T17:15:57
+  [FLUSH] 55 records committed to SALES_DATA @ 2026-07-10T17:15:57
+
+✅  Consumed 255 events → SALES_DATA table
+
+── Sales by City (from stream) ──
+  Faisalabad          26 orders      3,654,243 PKR
+  Karachi             28 orders      3,187,919 PKR
+  Multan              26 orders      2,969,683 PKR
+  Hyderabad           23 orders      2,916,440 PKR
+  Lahore              32 orders      2,858,807 PKR
+  Islamabad           21 orders      2,814,902 PKR
+  Sialkot             21 orders      2,515,505 PKR
+  Rawalpindi          27 orders      2,412,367 PKR
+  Peshawar            32 orders      2,248,770 PKR
+  Quetta              19 orders      1,156,465 PKR

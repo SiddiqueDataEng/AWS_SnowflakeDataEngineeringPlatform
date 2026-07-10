@@ -1,0 +1,32 @@
+
+🔧  UDF Simulation — Pakistani Ecommerce Platform
+────────────────────────────────────────────────
+
+── Scalar UDFs ──
+  convert_pkr_to_usd(85000)        → $305.76 USD
+  convert_pkr_to_usd(3500)         → $12.59 USD
+  get_gst_amount(85000, 0.17)      → 14,450.00 PKR
+  get_gst_amount(3500, 0.05)       → 175.00 PKR
+  categorize_order_value(4500)     → Small (< 5K PKR)
+  categorize_order_value(75000)    → Large (50K–200K PKR)
+  categorize_order_value(350000)   → Enterprise (200K+ PKR)
+
+── Scalar UDF: sales_qty_by_supplier('2023-05-13', 4) → 4.0 units
+
+── Tabular UDF: sales_detail_by_supplier('2023-05-13', 4) ──
+  {'SUPP_KEY': 4, 'QTY_SOLD': 3.0, 'NET_REVENUE_PKR': 127416.51, 'COURIER': 'M&P Express', 'SUPPLIER_NAME': 'Multan Cotton & Co', 'SUPPLIER_CITY': 'Multan'}
+  {'SUPP_KEY': 4, 'QTY_SOLD': 1.0, 'NET_REVENUE_PKR': 80608.09, 'COURIER': 'Trax', 'SUPPLIER_NAME': 'Multan Cotton & Co', 'SUPPLIER_CITY': 'Multan'}
+
+── JavaScript-style UDTF: ip_range_generator('192.168.1', 1, 5) ──
+  192.168.1.1
+  192.168.1.2
+  192.168.1.3
+  192.168.1.4
+  192.168.1.5
+
+── UDF Security (RBAC) ──
+  Role=sysadmin             create_udf=True  view_ddl=True
+  Role=udf_developer        create_udf=False  view_ddl=False
+  Role=reporting_user       create_udf=False  view_ddl=False
+
+✅  UDF demo complete.

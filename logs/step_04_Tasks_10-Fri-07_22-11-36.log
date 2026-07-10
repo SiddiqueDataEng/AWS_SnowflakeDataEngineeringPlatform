@@ -1,0 +1,54 @@
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\05_tasks_scheduling\tasks.py:91: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  start = datetime.utcnow()
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\05_tasks_scheduling\tasks.py:120: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dur = (datetime.utcnow() - start).total_seconds() * 1000
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\05_tasks_scheduling\tasks.py:41: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "SCHEDULED_TIME": datetime.utcnow().isoformat(),
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\05_tasks_scheduling\tasks.py:131: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  start = datetime.utcnow()
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\05_tasks_scheduling\tasks.py:150: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dur = (datetime.utcnow() - start).total_seconds() * 1000
+
+⏰  Task Scheduler — Pakistani Sales Aggregation Pipeline
+────────────────────────────────────────────────────
+
+  ── Processing 2024-03-15 ──
+  [TASK] TSK_DAILY_SALES_SUMMARY  date=2024-03-15  rows=5  9.1ms
+  [TASK] TSK_ORDERS_BY_SHIPMODE   date=2024-03-15  rows=5  2.4ms
+
+  ── Processing 2024-03-16 ──
+  [TASK] TSK_DAILY_SALES_SUMMARY  date=2024-03-16  rows=6  0.0ms
+  [TASK] TSK_ORDERS_BY_SHIPMODE   date=2024-03-16  rows=6  0.0ms
+
+  ── Processing 2024-03-17 ──
+  [TASK] TSK_DAILY_SALES_SUMMARY  date=2024-03-17  rows=5  8.2ms
+  [TASK] TSK_ORDERS_BY_SHIPMODE   date=2024-03-17  rows=4  3.1ms
+
+  ── Processing 2024-06-01 ──
+  [TASK] TSK_DAILY_SALES_SUMMARY  date=2024-06-01  rows=6  0.0ms
+  [TASK] TSK_ORDERS_BY_SHIPMODE   date=2024-06-01  rows=5  0.0ms
+
+  ── Processing 2024-09-20 ──
+  [TASK] TSK_DAILY_SALES_SUMMARY  date=2024-09-20  rows=4  0.0ms
+  [TASK] TSK_ORDERS_BY_SHIPMODE   date=2024-09-20  rows=4  0.0ms
+
+── Task History (last 10 runs) ──
+  2026-07-10T17:15:00  TSK_DAILY_SALES_SUMMARY         SUCCEEDED  rows=5
+  2026-07-10T17:15:00  TSK_ORDERS_BY_SHIPMODE          SUCCEEDED  rows=5
+  2026-07-10T17:15:00  TSK_DAILY_SALES_SUMMARY         SUCCEEDED  rows=6
+  2026-07-10T17:15:00  TSK_ORDERS_BY_SHIPMODE          SUCCEEDED  rows=6
+  2026-07-10T17:15:00  TSK_DAILY_SALES_SUMMARY         SUCCEEDED  rows=5
+  2026-07-10T17:15:00  TSK_ORDERS_BY_SHIPMODE          SUCCEEDED  rows=4
+  2026-07-10T17:15:00  TSK_DAILY_SALES_SUMMARY         SUCCEEDED  rows=6
+  2026-07-10T17:15:00  TSK_ORDERS_BY_SHIPMODE          SUCCEEDED  rows=5
+  2026-07-10T17:15:00  TSK_DAILY_SALES_SUMMARY         SUCCEEDED  rows=4
+  2026-07-10T17:15:00  TSK_ORDERS_BY_SHIPMODE          SUCCEEDED  rows=4
+
+── DAILY_SALES_SUMMARY sample (top 5 by revenue) ──
+  {'SHIP_DATE': '2024-09-20', 'SHIP_MODE': 'ROAD', 'COURIER': 'M&P Express', 'PROVINCE': 'Punjab', 'REVENUE_PKR': 2322177.0, 'ORDER_COUNT': 1}
+  {'SHIP_DATE': '2024-06-01', 'SHIP_MODE': 'SEA', 'COURIER': 'M&P Express', 'PROVINCE': 'Punjab', 'REVENUE_PKR': 2239991.0, 'ORDER_COUNT': 1}
+  {'SHIP_DATE': '2024-03-15', 'SHIP_MODE': 'AIR', 'COURIER': 'M&P Express', 'PROVINCE': 'Punjab', 'REVENUE_PKR': 1871727.0, 'ORDER_COUNT': 1}
+  {'SHIP_DATE': '2024-03-17', 'SHIP_MODE': 'AIR', 'COURIER': 'M&P Express', 'PROVINCE': 'Balochistan', 'REVENUE_PKR': 1294953.0, 'ORDER_COUNT': 1}
+  {'SHIP_DATE': '2024-03-16', 'SHIP_MODE': 'AIR', 'COURIER': 'Trax', 'PROVINCE': 'Punjab', 'REVENUE_PKR': 1170595.0, 'ORDER_COUNT': 1}
+
+✅  Task chain complete.

@@ -1,0 +1,12 @@
+
+🇵🇰  Pakistani Contextual Data Generator
+────────────────────────────────────────────
+  [CSV]     500 rows  →  C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\customers\customers.csv
+  [CSV]      10 rows  →  C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\suppliers\suppliers.csv
+  [CSV]     185 rows  →  C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\parts\parts.csv
+  [CSV]    2000 rows  →  C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\orders\orders.csv
+  [CSV]    4980 rows  →  C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\lineitems\lineitems.csv
+  [JSON]    200 records → C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\lineitems\lineitems_sample.json
+  [JSON]    100 records → C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\orders\orders_sample.json
+
+✅  Generation complete — 4980 lineitems across 2000 orders

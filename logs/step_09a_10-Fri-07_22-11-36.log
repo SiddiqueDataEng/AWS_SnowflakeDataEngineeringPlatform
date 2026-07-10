@@ -1,0 +1,18 @@
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\09_kafka_streaming\pk_kafka_producer.py:84: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "transaction_ts": datetime.utcnow().isoformat(),
+
+📡  Pakistani Sales Stream Producer
+────────────────────────────────────────────
+  Topic : pk-sales-data
+  Events: 50  delay: 0.05s each
+
+  [PRODUCER] Topic=pk-sales-data  Output=C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\streaming\pk-sales-data.jsonl
+  [  1/50] Nadia Chaudhry            Faisalabad       444.17 PKR  via Leopards Courier
+  [ 10/50] Muhammad Rana             Quetta        164175.21 PKR  via M&P Express
+  [ 20/50] Usman Hashmi              Lahore          2158.55 PKR  via Trax
+  [ 30/50] Naveed Mirza              Hyderabad      19736.26 PKR  via Pakistan Post
+  [ 40/50] Kamran Hashmi             Rawalpindi      6777.60 PKR  via Pakistan Post
+  [ 50/50] Hassan Chaudhry           Faisalabad     94776.09 PKR  via Trax
+  [FLUSH] 50 events written to pk-sales-data
+
+✅  Streamed 50 events to topic 'pk-sales-data'

@@ -1,0 +1,26 @@
+2026-07-10 22:15:30,202 [INFO] === Task 1/2: pk_copy_orders ===
+2026-07-10 22:15:30,202 [INFO] Task: pk_copy_orders — loading orders CSV → SQLite
+2026-07-10 22:15:30,249 [INFO] COPY INTO ORDERS — 2000 rows loaded
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\08_aws_python\airflow_dags\pk_sales_dag.py:58: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return {"rows_loaded": len(df), "table": "ORDERS", "timestamp": datetime.utcnow().isoformat()}
+2026-07-10 22:15:30,249 [INFO] Result: {'rows_loaded': 2000, 'table': 'ORDERS', 'timestamp': '2026-07-10T17:15:30.249240'}
+2026-07-10 22:15:30,249 [INFO] === Task 2/2: pk_glue_transform ===
+2026-07-10 22:15:30,249 [INFO] Task: pk_glue_transform — running PySpark-style aggregation
+2026-07-10 22:15:30,333 [INFO] Glue job complete — 4753 aggregation rows written to PK_DAILY_SALES_AGG
+2026-07-10 22:15:30,333 [INFO] Result: {'rows': 4753, 'table': 'PK_DAILY_SALES_AGG'}
+
+✈️  Airflow DAG — pk_sales_pipeline (standalone mode)
+──────────────────────────────────────────────────
+  DAG: pk_sales_pipeline  schedule: @daily
+  Tasks: pk_copy_orders >> pk_glue_transform
+
+
+── Top 5 revenue rows from PK_DAILY_SALES_AGG ──
+L_SHIPDATE L_SHIPMODE     L_COURIER  C_PROVINCE  TOTAL_REVENUE_PKR  ORDER_COUNT
+2023-12-30        SEA         Swyft       Sindh       5491463.0000            1
+2024-05-24        SEA          Trax       Sindh       5002422.7900            1
+2023-10-12       RAIL Pakistan Post Balochistan       4942316.7000            1
+2024-03-30        SEA          Trax      Punjab       4897108.6260            1
+2023-10-13       ROAD           TCS         KPK       4851707.5605            1
+
+✅  DAG simulation complete.

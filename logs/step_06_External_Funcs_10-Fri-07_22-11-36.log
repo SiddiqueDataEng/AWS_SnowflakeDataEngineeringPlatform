@@ -1,0 +1,27 @@
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\07_external_functions\lambda_currency.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  results.append([row_number, {"exchange_rate": rate, "timestamp": datetime.utcnow().isoformat()}])
+
+💱  External Function Demo — PKR Currency Conversion
+──────────────────────────────────────────────────
+
+── Single call simulation ──
+  PKR → USD : 0.0036
+  PKR → EUR : 0.0033
+  PKR → AED : 0.01322
+  PKR → SAR : 0.0135
+  PKR → GBP : 0.00284
+  USD → PKR : 277.77777777777777
+  AED → PKR : 75.642965204236
+  SAR → PKR : 74.07407407407408
+
+── Batch Lambda invocation (mirrors Snowflake External Function batch call) ──
+  Row 0: {'exchange_rate': 0.0036, 'timestamp': '2026-07-10T17:15:14.410678'}
+  Row 1: {'exchange_rate': 0.0033, 'timestamp': '2026-07-10T17:15:14.410678'}
+  Row 2: {'exchange_rate': 0.01322, 'timestamp': '2026-07-10T17:15:14.410678'}
+  Row 3: {'exchange_rate': 0.0135, 'timestamp': '2026-07-10T17:15:14.410678'}
+  Row 4: {'exchange_rate': 0.00284, 'timestamp': '2026-07-10T17:15:14.410678'}
+  Row 5: {'exchange_rate': 277.77777777777777, 'timestamp': '2026-07-10T17:15:14.410678'}
+  Row 6: {'exchange_rate': 75.642965204236, 'timestamp': '2026-07-10T17:15:14.410678'}
+  Row 7: {'exchange_rate': 74.07407407407408, 'timestamp': '2026-07-10T17:15:14.410678'}
+
+✅  External function demo complete.

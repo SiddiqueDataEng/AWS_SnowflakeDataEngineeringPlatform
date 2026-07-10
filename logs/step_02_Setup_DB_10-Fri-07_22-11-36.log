@@ -1,0 +1,14 @@
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\03_data_loading\setup_db.py:157: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "LOAD_TIME":  datetime.utcnow().isoformat(),
+
+🗄️  Setting up local Snowflake simulation (SQLite)
+   DB path: C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_db\pk_ecommerce.db
+
+  [DDL]  All tables created (pk_ecommerce_db.pk_ecommerce_liv)
+  [COPY] CUSTOMER         500 rows loaded from customers.csv
+  [COPY] SUPPLIER          10 rows loaded from suppliers.csv
+  [COPY] PART             185 rows loaded from parts.csv
+  [COPY] ORDERS          2000 rows loaded from orders.csv
+  [COPY] LINEITEM        4980 rows loaded from lineitems.csv
+
+✅  Setup complete — 7675 total rows loaded into C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_db\pk_ecommerce.db

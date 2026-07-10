@@ -1,0 +1,177 @@
+[
+  {
+    "TABLE_NAME": "CUSTOMER",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\customers\\customers.csv",
+    "ROW_COUNT": 500,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T15:02:53.978643"
+  },
+  {
+    "TABLE_NAME": "SUPPLIER",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\suppliers\\suppliers.csv",
+    "ROW_COUNT": 10,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T15:02:54.115856"
+  },
+  {
+    "TABLE_NAME": "PART",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\parts\\parts.csv",
+    "ROW_COUNT": 185,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T15:02:54.194209"
+  },
+  {
+    "TABLE_NAME": "ORDERS",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\orders\\orders.csv",
+    "ROW_COUNT": 2000,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T15:02:54.253054"
+  },
+  {
+    "TABLE_NAME": "LINEITEM",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\lineitems\\lineitems.csv",
+    "ROW_COUNT": 4980,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T15:02:54.360514"
+  },
+  {
+    "TABLE_NAME": "CUSTOMER",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\customers\\customers.csv",
+    "ROW_COUNT": 500,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T15:03:06.072210"
+  },
+  {
+    "TABLE_NAME": "SUPPLIER",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\suppliers\\suppliers.csv",
+    "ROW_COUNT": 10,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T15:03:06.100933"
+  },
+  {
+    "TABLE_NAME": "PART",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\parts\\parts.csv",
+    "ROW_COUNT": 185,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T15:03:06.134287"
+  },
+  {
+    "TABLE_NAME": "ORDERS",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\orders\\orders.csv",
+    "ROW_COUNT": 2000,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T15:03:06.181314"
+  },
+  {
+    "TABLE_NAME": "LINEITEM",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\lineitems\\lineitems.csv",
+    "ROW_COUNT": 4980,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T15:03:06.289873"
+  },
+  {
+    "TABLE_NAME": "CUSTOMER",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\customers\\customers.csv",
+    "ROW_COUNT": 500,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T16:58:02.119984"
+  },
+  {
+    "TABLE_NAME": "SUPPLIER",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\suppliers\\suppliers.csv",
+    "ROW_COUNT": 10,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T16:58:02.143007"
+  },
+  {
+    "TABLE_NAME": "PART",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\parts\\parts.csv",
+    "ROW_COUNT": 185,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T16:58:02.177482"
+  },
+  {
+    "TABLE_NAME": "ORDERS",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\orders\\orders.csv",
+    "ROW_COUNT": 2000,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T16:58:02.226556"
+  },
+  {
+    "TABLE_NAME": "LINEITEM",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\lineitems\\lineitems.csv",
+    "ROW_COUNT": 4980,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T16:58:02.339415"
+  },
+  {
+    "TABLE_NAME": "CUSTOMER",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\customers\\customers.csv",
+    "ROW_COUNT": 500,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T17:14:15.425793"
+  },
+  {
+    "TABLE_NAME": "SUPPLIER",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\suppliers\\suppliers.csv",
+    "ROW_COUNT": 10,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T17:14:15.457951"
+  },
+  {
+    "TABLE_NAME": "PART",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\parts\\parts.csv",
+    "ROW_COUNT": 185,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T17:14:15.489485"
+  },
+  {
+    "TABLE_NAME": "ORDERS",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\orders\\orders.csv",
+    "ROW_COUNT": 2000,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T17:14:15.530870"
+  },
+  {
+    "TABLE_NAME": "LINEITEM",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\lineitems\\lineitems.csv",
+    "ROW_COUNT": 4980,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T17:14:15.625948"
+  },
+  {
+    "TABLE_NAME": "CUSTOMER",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\customers\\customers.csv",
+    "ROW_COUNT": 500,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T17:14:45.896285"
+  },
+  {
+    "TABLE_NAME": "SUPPLIER",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\suppliers\\suppliers.csv",
+    "ROW_COUNT": 10,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T17:14:45.918932"
+  },
+  {
+    "TABLE_NAME": "PART",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\parts\\parts.csv",
+    "ROW_COUNT": 185,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T17:14:45.955117"
+  },
+  {
+    "TABLE_NAME": "ORDERS",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\orders\\orders.csv",
+    "ROW_COUNT": 2000,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T17:14:46.006169"
+  },
+  {
+    "TABLE_NAME": "LINEITEM",
+    "FILE_PATH": "C:\\Users\\DataEng\\Desktop\\aws_snowflake\\aws_snowflake_data_eng\\local_s3\\pk_ecommerce_dev\\lineitems\\lineitems.csv",
+    "ROW_COUNT": 4980,
+    "STATUS": "LOADED",
+    "LOAD_TIME": "2026-07-10T17:14:46.106031"
+  }
+]

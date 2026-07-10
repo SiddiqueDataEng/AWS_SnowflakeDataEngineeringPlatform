@@ -1,0 +1,427 @@
+
+🇵🇰  Pakistani AWS + Snowflake Data Engineering Platform
+     Local Simulation — Full End-to-End Pipeline
+
+══════════════════════════════════════════════════════════════
+  STEP  1 │ Generate Pakistani Contextual Data
+══════════════════════════════════════════════════════════════
+
+🇵🇰  Pakistani Contextual Data Generator
+────────────────────────────────────────────
+  [CSV]     500 rows  →  C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\customers\customers.csv
+  [CSV]      10 rows  →  C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\suppliers\suppliers.csv
+  [CSV]     185 rows  →  C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\parts\parts.csv
+  [CSV]    2000 rows  →  C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\orders\orders.csv
+  [CSV]    4980 rows  →  C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\lineitems\lineitems.csv
+  [JSON]    200 records → C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\lineitems\lineitems_sample.json
+  [JSON]    100 records → C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\pk_ecommerce_dev\orders\orders_sample.json
+
+✅  Generation complete — 4980 lineitems across 2000 orders
+
+══════════════════════════════════════════════════════════════
+  STEP  2 │ Setup SQLite DB & COPY INTO (bulk load)
+══════════════════════════════════════════════════════════════
+
+🗄️  Setting up local Snowflake simulation (SQLite)
+   DB path: C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_db\pk_ecommerce.db
+
+  [DDL]  All tables created (pk_ecommerce_db.pk_ecommerce_liv)
+  [COPY] CUSTOMER         500 rows loaded from customers.csv
+  [COPY] SUPPLIER          10 rows loaded from suppliers.csv
+  [COPY] PART             185 rows loaded from parts.csv
+  [COPY] ORDERS          2000 rows loaded from orders.csv
+  [COPY] LINEITEM        4980 rows loaded from lineitems.csv
+
+✅  Setup complete — 7675 total rows loaded into C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_db\pk_ecommerce.db
+
+══════════════════════════════════════════════════════════════
+  STEP  3 │ Streams & Change Data Capture (telecom subscribers)
+══════════════════════════════════════════════════════════════
+
+📡  Streams & CDC Demo (Pakistani Telecom Subscribers)
+──────────────────────────────────────────────────
+  [SETUP] Stream tables and triggers created.
+  [INSERT] 8 subscribers inserted → stream captured
+
+── Step 1: Read standard delta stream (all actions) ──
+
+  [STREAM] SUBSCRIBERS_STD_STREAM  (0 records):
+
+── Step 2: Consume stream transactionally → route to prod tables ──
+
+  [TASK] Consuming stream in transaction → PREPAID / POSTPAID prod tables
+  [COMMIT] Transaction committed — stream offset advanced
+
+── Step 3: Update subscriber fees (simulate CDC) ──
+  [UPDATE] Subscriber 2 fee → 1000 PKR  (delta stream captured)
+  [UPDATE] Subscriber 4 fee → 1500 PKR  (delta stream captured)
+
+── Step 4: Check delta stream for updates ──
+
+  [STREAM] SUBSCRIBERS_STD_STREAM  (2 records  filter=UPDATE):
+    {'STREAM_ID': 15, 'ID': 2, 'NAME': 'Fatima Malik', 'PHONE': '0321-7654321', 'CITY': 'Lahore', 'PLAN_TYPE': 'postpaid', 'MONTHLY_FEE': 1000.0, 'METADATA_ACTION': 'UPDATE', 'CAPTURED_AT': '2026-07-10 17:14:15'}
+    {'STREAM_ID': 16, 'ID': 4, 'NAME': 'Ayesha Qureshi', 'PHONE': '0311-2222222', 'CITY': 'Rawalpindi', 'PLAN_TYPE': 'postpaid', 'MONTHLY_FEE': 1500.0, 'METADATA_ACTION': 'UPDATE', 'CAPTURED_AT': '2026-07-10 17:14:15'}
+
+── Step 5: Merge updates into production tables ──
+  [MERGE] 2 updates merged into SUBSCRIBERS_POSTPAID_PROD
+
+── Step 6: Verify production tables ──
+
+  [SUBSCRIBERS_PREPAID_PROD]  4 rows:
+    {'ID': 1, 'NAME': 'Ahmed Khan', 'PHONE': '0300-1234567', 'CITY': 'Karachi', 'MONTHLY_FEE': 200.0}
+    {'ID': 3, 'NAME': 'Usman Chaudhry', 'PHONE': '0333-1111111', 'CITY': 'Islamabad', 'MONTHLY_FEE': 200.0}
+    {'ID': 5, 'NAME': 'Bilal Ahmed', 'PHONE': '0345-3333333', 'CITY': 'Peshawar', 'MONTHLY_FEE': 200.0}
+    {'ID': 7, 'NAME': 'Tariq Mirza', 'PHONE': '0312-5555555', 'CITY': 'Faisalabad', 'MONTHLY_FEE': 150.0}
+
+  [SUBSCRIBERS_POSTPAID_PROD]  4 rows:
+    {'ID': 2, 'NAME': 'Fatima Malik', 'PHONE': '0321-7654321', 'CITY': 'Lahore', 'MONTHLY_FEE': 1000.0}
+    {'ID': 4, 'NAME': 'Ayesha Qureshi', 'PHONE': '0311-2222222', 'CITY': 'Rawalpindi', 'MONTHLY_FEE': 1500.0}
+    {'ID': 6, 'NAME': 'Zainab Hussain', 'PHONE': '0302-4444444', 'CITY': 'Multan', 'MONTHLY_FEE': 600.0}
+    {'ID': 8, 'NAME': 'Sara Baig', 'PHONE': '0346-6666666', 'CITY': 'Sialkot', 'MONTHLY_FEE': 900.0}
+
+✅  CDC demo complete.
+
+══════════════════════════════════════════════════════════════
+  STEP  4 │ Scheduled Tasks — Daily Sales Aggregation
+══════════════════════════════════════════════════════════════
+
+⏰  Task Scheduler — Pakistani Sales Aggregation Pipeline
+────────────────────────────────────────────────────
+
+  ── Processing 2024-03-15 ──
+  [TASK] TSK_DAILY_SALES_SUMMARY  date=2024-03-15  rows=5  2.6ms
+  [TASK] TSK_ORDERS_BY_SHIPMODE   date=2024-03-15  rows=5  4.0ms
+
+  ── Processing 2024-06-01 ──
+  [TASK] TSK_DAILY_SALES_SUMMARY  date=2024-06-01  rows=6  5.9ms
+  [TASK] TSK_ORDERS_BY_SHIPMODE   date=2024-06-01  rows=5  0.0ms
+
+  ── Processing 2024-09-20 ──
+  [TASK] TSK_DAILY_SALES_SUMMARY  date=2024-09-20  rows=4  4.0ms
+  [TASK] TSK_ORDERS_BY_SHIPMODE   date=2024-09-20  rows=4  0.0ms
+
+── Task History (last 10 runs) ──
+  2026-07-10T16:58:02  TSK_DAILY_SALES_SUMMARY         SUCCEEDED  rows=6
+  2026-07-10T16:58:02  TSK_ORDERS_BY_SHIPMODE          SUCCEEDED  rows=5
+  2026-07-10T16:58:02  TSK_DAILY_SALES_SUMMARY         SUCCEEDED  rows=4
+  2026-07-10T16:58:02  TSK_ORDERS_BY_SHIPMODE          SUCCEEDED  rows=4
+  2026-07-10T17:14:15  TSK_DAILY_SALES_SUMMARY         SUCCEEDED  rows=5
+  2026-07-10T17:14:15  TSK_ORDERS_BY_SHIPMODE          SUCCEEDED  rows=5
+  2026-07-10T17:14:15  TSK_DAILY_SALES_SUMMARY         SUCCEEDED  rows=6
+  2026-07-10T17:14:15  TSK_ORDERS_BY_SHIPMODE          SUCCEEDED  rows=5
+  2026-07-10T17:14:15  TSK_DAILY_SALES_SUMMARY         SUCCEEDED  rows=4
+  2026-07-10T17:14:15  TSK_ORDERS_BY_SHIPMODE          SUCCEEDED  rows=4
+
+── DAILY_SALES_SUMMARY sample (top 5 by revenue) ──
+  {'SHIP_DATE': '2024-09-20', 'SHIP_MODE': 'ROAD', 'COURIER': 'M&P Express', 'PROVINCE': 'Punjab', 'REVENUE_PKR': 2322177.0, 'ORDER_COUNT': 1}
+  {'SHIP_DATE': '2024-06-01', 'SHIP_MODE': 'SEA', 'COURIER': 'M&P Express', 'PROVINCE': 'Punjab', 'REVENUE_PKR': 2239991.0, 'ORDER_COUNT': 1}
+2026-07-10 22:14:16,517 [INFO] === Task 1/2: pk_copy_orders ===
+2026-07-10 22:14:16,519 [INFO] Task: pk_copy_orders — loading orders CSV → SQLite
+2026-07-10 22:14:16,550 [INFO] COPY INTO ORDERS — 2000 rows loaded
+2026-07-10 22:14:16,550 [INFO] Result: {'rows_loaded': 2000, 'table': 'ORDERS', 'timestamp': '2026-07-10T17:14:16.550758'}
+2026-07-10 22:14:16,550 [INFO] === Task 2/2: pk_glue_transform ===
+2026-07-10 22:14:16,550 [INFO] Task: pk_glue_transform — running PySpark-style aggregation
+2026-07-10 22:14:16,604 [INFO] Glue job complete — 4753 aggregation rows written to PK_DAILY_SALES_AGG
+2026-07-10 22:14:16,616 [INFO] Result: {'rows': 4753, 'table': 'PK_DAILY_SALES_AGG'}
+  {'SHIP_DATE': '2024-03-15', 'SHIP_MODE': 'AIR', 'COURIER': 'M&P Express', 'PROVINCE': 'Punjab', 'REVENUE_PKR': 1871727.0, 'ORDER_COUNT': 1}
+  {'SHIP_DATE': '2024-03-17', 'SHIP_MODE': 'AIR', 'COURIER': 'M&P Express', 'PROVINCE': 'Balochistan', 'REVENUE_PKR': 1294953.0, 'ORDER_COUNT': 1}
+  {'SHIP_DATE': '2024-03-16', 'SHIP_MODE': 'AIR', 'COURIER': 'Trax', 'PROVINCE': 'Punjab', 'REVENUE_PKR': 1170595.0, 'ORDER_COUNT': 1}
+
+✅  Task chain complete.
+
+══════════════════════════════════════════════════════════════
+  STEP  5 │ User Defined Functions (PKR conversion, GST, tabular)
+══════════════════════════════════════════════════════════════
+
+🔧  UDF Simulation — Pakistani Ecommerce Platform
+────────────────────────────────────────────────
+
+── Scalar UDFs ──
+  convert_pkr_to_usd(85000)        → $305.76 USD
+  convert_pkr_to_usd(3500)         → $12.59 USD
+  get_gst_amount(85000, 0.17)      → 14,450.00 PKR
+  get_gst_amount(3500, 0.05)       → 175.00 PKR
+  categorize_order_value(4500)     → Small (< 5K PKR)
+  categorize_order_value(75000)    → Large (50K–200K PKR)
+  categorize_order_value(350000)   → Enterprise (200K+ PKR)
+
+── Scalar UDF: sales_qty_by_supplier('2023-05-13', 4) → 4.0 units
+
+── Tabular UDF: sales_detail_by_supplier('2023-05-13', 4) ──
+  {'SUPP_KEY': 4, 'QTY_SOLD': 3.0, 'NET_REVENUE_PKR': 127416.51, 'COURIER': 'M&P Express', 'SUPPLIER_NAME': 'Multan Cotton & Co', 'SUPPLIER_CITY': 'Multan'}
+  {'SUPP_KEY': 4, 'QTY_SOLD': 1.0, 'NET_REVENUE_PKR': 80608.09, 'COURIER': 'Trax', 'SUPPLIER_NAME': 'Multan Cotton & Co', 'SUPPLIER_CITY': 'Multan'}
+
+── JavaScript-style UDTF: ip_range_generator('192.168.1', 1, 5) ──
+  192.168.1.1
+  192.168.1.2
+  192.168.1.3
+  192.168.1.4
+  192.168.1.5
+
+── UDF Security (RBAC) ──
+  Role=sysadmin             create_udf=True  view_ddl=True
+  Role=udf_developer        create_udf=False  view_ddl=False
+  Role=reporting_user       create_udf=False  view_ddl=False
+
+✅  UDF demo complete.
+
+══════════════════════════════════════════════════════════════
+  STEP  6 │ External Functions — PKR Currency Conversion Lambda
+══════════════════════════════════════════════════════════════
+
+💱  External Function Demo — PKR Currency Conversion
+──────────────────────────────────────────────────
+
+── Single call simulation ──
+  PKR → USD : 0.0036
+  PKR → EUR : 0.0033
+  PKR → AED : 0.01322
+  PKR → SAR : 0.0135
+  PKR → GBP : 0.00284
+  USD → PKR : 277.77777777777777
+  AED → PKR : 75.642965204236
+  SAR → PKR : 74.07407407407408
+
+── Batch Lambda invocation (mirrors Snowflake External Function batch call) ──
+  Row 0: {'exchange_rate': 0.0036, 'timestamp': '2026-07-10T17:14:15.785775'}
+  Row 1: {'exchange_rate': 0.0033, 'timestamp': '2026-07-10T17:14:15.785775'}
+  Row 2: {'exchange_rate': 0.01322, 'timestamp': '2026-07-10T17:14:15.785775'}
+  Row 3: {'exchange_rate': 0.0135, 'timestamp': '2026-07-10T17:14:15.785775'}
+  Row 4: {'exchange_rate': 0.00284, 'timestamp': '2026-07-10T17:14:15.785775'}
+  Row 5: {'exchange_rate': 277.77777777777777, 'timestamp': '2026-07-10T17:14:15.785775'}
+  Row 6: {'exchange_rate': 75.642965204236, 'timestamp': '2026-07-10T17:14:15.785775'}
+  Row 7: {'exchange_rate': 74.07407407407408, 'timestamp': '2026-07-10T17:14:15.785775'}
+
+✅  External function demo complete.
+
+══════════════════════════════════════════════════════════════
+  STEP  7 │ AWS Python Integrations (connector, pandas, glue, pyspark)
+══════════════════════════════════════════════════════════════
+
+🐍  AWS Python ↔ Snowflake Integration Demos
+────────────────────────────────────────────────
+
+── 1. Basic Python → Snowflake query (python-sf-local.py) ──
+  [CONNECT] pk_ecommerce_db.pk_ecommerce_dev (local SQLite: pk_ecommerce.db)
+  Fetched 5 rows:
+    {'L_ORDERKEY': 1, 'L_QUANTITY': 3.0, 'L_EXTENDEDPRICE': 141573.9, 'L_SHIPDATE': '2023-05-13', 'L_COURIER': 'M&P Express', 'SUPPLIER': 'Multan Cotton & Co'}
+    {'L_ORDERKEY': 2, 'L_QUANTITY': 16.0, 'L_EXTENDEDPRICE': 700755.04, 'L_SHIPDATE': '2023-11-23', 'L_COURIER': 'Swyft', 'SUPPLIER': 'Quetta Dry Fruits & Trading'}
+    {'L_ORDERKEY': 2, 'L_QUANTITY': 8.0, 'L_EXTENDEDPRICE': 24747.84, 'L_SHIPDATE': '2023-12-15', 'L_COURIER': 'Swyft', 'SUPPLIER': 'Faisalabad Textile Mills'}
+    {'L_ORDERKEY': 3, 'L_QUANTITY': 15.0, 'L_EXTENDEDPRICE': 18944.85, 'L_SHIPDATE': '2023-10-13', 'L_COURIER': 'TCS', 'SUPPLIER': 'Multan Cotton & Co'}
+    {'L_ORDERKEY': 3, 'L_QUANTITY': 13.0, 'L_EXTENDEDPRICE': 71443.97, 'L_SHIPDATE': '2023-10-14', 'L_COURIER': 'TCS', 'SUPPLIER': 'Sialkot Sports & Goods'}
+
+── 2. Pandas → Snowflake query (pandas-sf.py) ──
+  [CONNECT] pk_ecommerce_db.pk_ecommerce_dev (local SQLite: pk_ecommerce.db)
+O_ORDERDATE O_ORDERPRIORITY     C_CITY C_PROVINCE  TOTAL_PKR
+ 2023-07-04 5-NOT SPECIFIED    Sialkot     Punjab 8061753.93
+ 2023-07-04 5-NOT SPECIFIED    Sialkot     Punjab 8061753.93
+ 2023-03-04 5-NOT SPECIFIED Gujranwala     Punjab 7897702.91
+ 2023-03-04 5-NOT SPECIFIED Gujranwala     Punjab 7897702.91
+ 2023-04-23 5-NOT SPECIFIED  Hyderabad      Sindh 6619113.63
+ 2023-04-23 5-NOT SPECIFIED  Hyderabad      Sindh 6619113.63
+ 2024-05-22           4-LOW    Karachi      Sindh 6255703.86
+ 2024-05-22           4-LOW    Karachi      Sindh 6255703.86
+ 2023-09-12        1-URGENT     Sukkur      Sindh 6246611.61
+ 2023-09-12        1-URGENT     Sukkur      Sindh 6246611.61
+
+── 3. AWS Glue Python job (glue-python.py) ──
+  [CONNECT] pk_ecommerce_db.pk_ecommerce_dev (local SQLite: pk_ecommerce.db)
+  QueryID: local-20260710171416
+  First row: {'L_ORDERKEY': 1, 'L_PARTKEY': 10, 'L_SUPPKEY': 4, 'L_LINENUMBER': 1, 'L_QUANTITY': 3.0, 'L_EXTENDEDPRICE': 141573.9, 'L_DISCOUNT': 0.1, 'L_TAX': 0.05, 'L_RETURNFLAG': 'A', 'L_LINESTATUS': 'F', 'L_SHIPDATE': '2023-05-13', 'L_COMMITDATE': '2023-04-28', 'L_RECEIPTDATE': '2023-05-14', 'L_SHIPINSTRUCT': 'TAKE BACK RETURN', 'L_SHIPMODE': 'SEA', 'L_COURIER': 'M&P Express', 'L_COMMENT': 'Imagine sister project public will.'}
+
+── 4. Parameterized Glue job (glue-python-params.py) ship_date=2023-05-13 suppkey=4 ──
+  [CONNECT] pk_ecommerce_db.pk_ecommerce_dev (local SQLite: pk_ecommerce.db)
+  Rows returned: 2
+  Sample: {'L_ORDERKEY': 1, 'L_PARTKEY': 10, 'L_SUPPKEY': 4, 'L_LINENUMBER': 1, 'L_QUANTITY': 3.0, 'L_EXTENDEDPRICE': 141573.9, 'L_DISCOUNT': 0.1, 'L_TAX': 0.05, 'L_RETURNFLAG': 'A', 'L_LINESTATUS': 'F', 'L_SHIPDATE': '2023-05-13', 'L_COMMITDATE': '2023-04-28', 'L_RECEIPTDATE': '2023-05-14', 'L_SHIPINSTRUCT': 'TAKE BACK RETURN', 'L_SHIPMODE': 'SEA', 'L_COURIER': 'M&P Express', 'L_COMMENT': 'Imagine sister project public will.'}
+
+── 5. PySpark orders transform (pyspark_orders_transform.py) ──
+  [CONNECT] pk_ecommerce_db.pk_ecommerce_dev (local SQLite: pk_ecommerce.db)
+  Aggregated 4336 shipmode/courier/date combinations.
+L_SHIPMODE     L_COURIER L_SHIPDATE  TOTAL_REVENUE_PKR  ORDER_COUNT
+      ROAD           TCS 2023-08-23        14428854.52            6
+      RAIL Pakistan Post 2023-10-12        11046411.28            4
+       SEA         Swyft 2023-12-30        10982926.00            2
+       AIR           TCS 2023-11-11        10891201.26            8
+       AIR         Swyft 2024-05-04        10648263.58            4
+  [WRITE-BACK] AGGREGATED_DAILY_SALES → C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_db\pk_ecommerce.db
+
+✅  All AWS Python demos complete.
+
+══════════════════════════════════════════════════════════════
+  STEP  8 │ Airflow DAG Simulation (COPY INTO >> Glue Transform)
+══════════════════════════════════════════════════════════════
+
+✈️  Airflow DAG — pk_sales_pipeline (standalone mode)
+──────────────────────────────────────────────────
+  DAG: pk_sales_pipeline  schedule: @daily
+  Tasks: pk_copy_orders >> pk_glue_transform
+
+
+── Top 5 revenue rows from PK_DAILY_SALES_AGG ──
+L_SHIPDATE L_SHIPMODE     L_COURIER  C_PROVINCE  TOTAL_REVENUE_PKR  ORDER_COUNT
+2023-12-30        SEA         Swyft       Sindh       5491463.0000            1
+2024-05-24        SEA          Trax       Sindh       5002422.7900            1
+2023-10-12       RAIL Pakistan Post Balochistan       4942316.7000            1
+2024-03-30        SEA          Trax      Punjab       4897108.6260            1
+2023-10-13       ROAD           TCS         KPK       4851707.5605            1
+
+✅  DAG simulation complete.
+
+══════════════════════════════════════════════════════════════
+  STEP  9 │ Kafka Streaming — 50 Pakistani Sales Events
+══════════════════════════════════════════════════════════════
+
+📡  Pakistani Sales Stream Producer
+────────────────────────────────────────────
+  Topic : pk-sales-data
+  Events: 50  delay: 0.02s each
+
+  [PRODUCER] Topic=pk-sales-data  Output=C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\streaming\pk-sales-data.jsonl
+  [  1/50] Tariq Qureshi             Karachi        46052.42 PKR  via M&P Express
+  [ 10/50] Sara Rana                 Lahore        182699.04 PKR  via Leopards Courier
+  [ 20/50] Rizwan Bhatti             Peshawar      505163.77 PKR  via Trax
+  [ 30/50] Nadia Chaudhry            Hyderabad     195790.30 PKR  via Leopards Courier
+  [ 40/50] Kiran Bhatti              Multan        300017.94 PKR  via TCS
+  [ 50/50] Amna Butt                 Lahore          4996.12 PKR  via Pakistan Post
+  [FLUSH] 50 events written to pk-sales-data
+
+✅  Streamed 50 events to topic 'pk-sales-data'
+
+📥  Kafka Consumer → Snowflake Sink (pk-sales-data → SALES_DATA)
+───────────────────────────────────────────────────────
+  Topic     : pk-sales-data
+  Buffer    : 100 records
+  Sink table: SALES_DATA
+
+  [FLUSH] 100 records committed to SALES_DATA @ 2026-07-10T17:14:17
+  [FLUSH] 55 records committed to SALES_DATA @ 2026-07-10T17:14:17
+
+✅  Consumed 155 events → SALES_DATA table
+
+── Sales by City (from stream) ──
+  Faisalabad          16 orders      2,635,830 PKR
+  Lahore              24 orders      2,359,181 PKR
+  Hyderabad           14 orders      2,278,144 PKR
+  Multan              18 orders      2,186,110 PKR
+  Islamabad           12 orders      2,083,999 PKR
+  Karachi             19 orders      2,038,405 PKR
+  Peshawar            21 orders      1,375,203 PKR
+  Sialkot              9 orders      1,268,771 PKR
+  Rawalpindi          14 orders        653,911 PKR
+  Quetta               8 orders        457,297 PKR
+
+══════════════════════════════════════════════════════════════
+  STEP 10 │ Data Governance, Masking, RBAC & Time-Travel
+══════════════════════════════════════════════════════════════
+
+🔒  Data Governance & Security Demo (Pakistan Ecommerce)
+───────────────────────────────────────────────────────
+
+── Column-Level Masking by Role ──
+  [ROLE] USE ROLE accountadmin
+
+  Role=accountadmin  (3 rows visible):
+    Ahmed Bugti               CNIC=26049-4744854-3  Phone=0333-2719583  Province=KPK
+    Sohail Bhatti             CNIC=11952-2571945-4  Phone=0303-9478454  Province=Sindh
+    Hina Hashmi               CNIC=28231-1109031-3  Phone=0333-8090293  Province=Punjab
+  [ROLE] USE ROLE reporting_intern
+
+  Role=reporting_intern  (3 rows visible):
+    Ahmed Bugti               CNIC=***-*******-*  Phone=03**-*******  Province=KPK
+    Sohail Bhatti             CNIC=***-*******-*  Phone=03**-*******  Province=Sindh
+    Hina Hashmi               CNIC=***-*******-*  Phone=03**-*******  Province=Punjab
+  [ROLE] USE ROLE punjab_regional_admin
+
+  Role=punjab_regional_admin  (3 rows visible):
+    Hina Hashmi               CNIC=28231-1109031-3  Phone=0333-8090293  Province=Punjab
+    Mariam Ahmed              CNIC=16338-7022674-6  Phone=0331-5437923  Province=Punjab
+    Pervaiz Rana              CNIC=46178-5918715-6  Phone=0331-4226067  Province=Punjab
+
+── Row-Level Access Policy ──
+  Role=sysadmin                  sees provinces: ['KPK', 'Sindh', 'Punjab']
+  Role=sindh_regional_admin      sees provinces: ['Sindh']
+  Role=punjab_regional_admin     sees provinces: ['Punjab']
+
+── Time-Travel Demo ──
+  [SNAPSHOT] CUSTOMER @ 2026-07-10T17:14:17  (500 rows captured)
+  After DELETE: CUSTOMER has 464 rows
+  [RESTORE] CUSTOMER_RESTORED created with 500 rows from snapshot @ 2026-07-10T17:14:17
+  CUSTOMER_RESTORED has 500 rows (Balochistan rows recovered)
+  After restore-merge: CUSTOMER has 500 rows
+
+── Data Retention Policy (reference) ──
+  ALTER TABLE LINEITEM SET data_retention_time_in_days = 30;
+  ALTER TABLE ORDERS   SET data_retention_time_in_days = 30;
+  (Snowflake time-travel window = 30 days for production tables)
+
+✅  Governance & Security demo complete.
+
+══════════════════════════════════════════════════════════════
+  STEP 11 │ Snowpark Analytics + ML Sales Forecast
+══════════════════════════════════════════════════════════════
+
+❄️   Snowpark Simulation — Pakistani Ecommerce Analytics
+───────────────────────────────────────────────────────
+  [SESSION] Snowpark session created (local SQLite simulation)
+
+── DataFrame Basic Operations ──
+  ORDERS shape: (2000, 9)
+  Schema:
+O_ORDERKEY           int64
+O_CUSTKEY            int64
+O_ORDERSTATUS       object
+O_TOTALPRICE       float64
+O_ORDERDATE         object
+O_ORDERPRIORITY     object
+O_CLERK             object
+O_SHIPPRIORITY       int64
+O_COMMENT           object
+
+  Fulfilled orders: 684
+
+  Selected columns sample:
+ ORDER_ID  TOTAL_PKR ORDER_DATE        PRIORITY
+        1  133787.34 2023-04-16 5-NOT SPECIFIED
+        2  710992.82 2023-11-16          2-HIGH
+        3   99750.32 2023-10-11 5-NOT SPECIFIED
+
+  Orders by Priority:
+O_ORDERPRIORITY  AVG_TOTAL_PKR  ORDER_COUNT
+       3-MEDIUM   1.010607e+06          382
+5-NOT SPECIFIED   9.843755e+05          390
+       1-URGENT   9.768524e+05          374
+          4-LOW   9.611718e+05          436
+         2-HIGH   9.002010e+05          418
+
+── Snowpark UDF Demo ──
+ L_ORDERKEY  L_EXTENDEDPRICE  NET_AMOUNT_PKR ORDER_SIZE
+          1        141573.90       133787.34      Large
+          2        700755.04       686739.94 Enterprise
+          2         24747.84        24252.88     Medium
+          3         18944.85        19494.25     Medium
+          3         71443.97        63763.74      Large
+
+── Stored Procedure: load_daily_summary('2023-05-13') ──
+  [WRITE] 8 rows → SPROC_DAILY_SUMMARY
+  SPROC result: SUCCESS: 8 rows loaded for 2023-05-13
+
+── Machine Learning: Provincial Sales Forecast ──
+  Model: LinearRegression  R²=0.8841
+  Provinces encoded: {'Balochistan': 0, 'ICT': 1, 'KPK': 2, 'Punjab': 3, 'Sindh': 4}
+  [WRITE] 125 rows → ML_SALES_FORECAST
+ YEAR  MONTH  S_PROVINCE  REVENUE_PKR  PREDICTED_PKR
+ 2023      1 Balochistan 4.489821e+06   4.366518e+06
+ 2023      1         ICT 8.423724e+05   8.018250e+05
+ 2023      1         KPK 3.669509e+06   2.784443e+06
+ 2023      1      Punjab 2.283729e+07   2.177881e+07
+ 2023      1       Sindh 3.559040e+06   4.530755e+06
+
+✅  Snowpark demo complete.
+
+══════════════════════════════════════════════════════════════
+  ✅  Pipeline complete in 5.4s
+  Local DB  : C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_db\pk_ecommerce.db
+  Local S3  : C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3
+  Stream log: C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_s3\streaming\pk-sales-data.jsonl
+══════════════════════════════════════════════════════════════
+

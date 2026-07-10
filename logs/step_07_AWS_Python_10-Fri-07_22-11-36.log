@@ -1,0 +1,53 @@
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\08_aws_python\snowflake_connector.py:59: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.sfqid   = f"local-{datetime.utcnow().strftime('%Y%m%d%H%M%S')}"
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\08_aws_python\snowflake_connector.py:59: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.sfqid   = f"local-{datetime.utcnow().strftime('%Y%m%d%H%M%S')}"
+
+🐍  AWS Python ↔ Snowflake Integration Demos
+────────────────────────────────────────────────
+
+── 1. Basic Python → Snowflake query (python-sf-local.py) ──
+  [CONNECT] pk_ecommerce_db.pk_ecommerce_dev (local SQLite: pk_ecommerce.db)
+  Fetched 5 rows:
+    {'L_ORDERKEY': 1, 'L_QUANTITY': 3.0, 'L_EXTENDEDPRICE': 141573.9, 'L_SHIPDATE': '2023-05-13', 'L_COURIER': 'M&P Express', 'SUPPLIER': 'Multan Cotton & Co'}
+    {'L_ORDERKEY': 2, 'L_QUANTITY': 16.0, 'L_EXTENDEDPRICE': 700755.04, 'L_SHIPDATE': '2023-11-23', 'L_COURIER': 'Swyft', 'SUPPLIER': 'Quetta Dry Fruits & Trading'}
+    {'L_ORDERKEY': 2, 'L_QUANTITY': 8.0, 'L_EXTENDEDPRICE': 24747.84, 'L_SHIPDATE': '2023-12-15', 'L_COURIER': 'Swyft', 'SUPPLIER': 'Faisalabad Textile Mills'}
+    {'L_ORDERKEY': 3, 'L_QUANTITY': 15.0, 'L_EXTENDEDPRICE': 18944.85, 'L_SHIPDATE': '2023-10-13', 'L_COURIER': 'TCS', 'SUPPLIER': 'Multan Cotton & Co'}
+    {'L_ORDERKEY': 3, 'L_QUANTITY': 13.0, 'L_EXTENDEDPRICE': 71443.97, 'L_SHIPDATE': '2023-10-14', 'L_COURIER': 'TCS', 'SUPPLIER': 'Sialkot Sports & Goods'}
+
+── 2. Pandas → Snowflake query (pandas-sf.py) ──
+  [CONNECT] pk_ecommerce_db.pk_ecommerce_dev (local SQLite: pk_ecommerce.db)
+O_ORDERDATE O_ORDERPRIORITY     C_CITY C_PROVINCE  TOTAL_PKR
+ 2023-07-04 5-NOT SPECIFIED    Sialkot     Punjab 8061753.93
+ 2023-07-04 5-NOT SPECIFIED    Sialkot     Punjab 8061753.93
+ 2023-03-04 5-NOT SPECIFIED Gujranwala     Punjab 7897702.91
+ 2023-03-04 5-NOT SPECIFIED Gujranwala     Punjab 7897702.91
+ 2023-04-23 5-NOT SPECIFIED  Hyderabad      Sindh 6619113.63
+ 2023-04-23 5-NOT SPECIFIED  Hyderabad      Sindh 6619113.63
+ 2024-05-22           4-LOW    Karachi      Sindh 6255703.86
+ 2024-05-22           4-LOW    Karachi      Sindh 6255703.86
+ 2023-09-12        1-URGENT     Sukkur      Sindh 6246611.61
+ 2023-09-12        1-URGENT     Sukkur      Sindh 6246611.61
+
+── 3. AWS Glue Python job (glue-python.py) ──
+  [CONNECT] pk_ecommerce_db.pk_ecommerce_dev (local SQLite: pk_ecommerce.db)
+  QueryID: local-20260710171521
+  First row: {'L_ORDERKEY': 1, 'L_PARTKEY': 10, 'L_SUPPKEY': 4, 'L_LINENUMBER': 1, 'L_QUANTITY': 3.0, 'L_EXTENDEDPRICE': 141573.9, 'L_DISCOUNT': 0.1, 'L_TAX': 0.05, 'L_RETURNFLAG': 'A', 'L_LINESTATUS': 'F', 'L_SHIPDATE': '2023-05-13', 'L_COMMITDATE': '2023-04-28', 'L_RECEIPTDATE': '2023-05-14', 'L_SHIPINSTRUCT': 'TAKE BACK RETURN', 'L_SHIPMODE': 'SEA', 'L_COURIER': 'M&P Express', 'L_COMMENT': 'Movement people service crime.'}
+
+── 4. Parameterized Glue job (glue-python-params.py) ship_date=2023-05-13 suppkey=4 ──
+  [CONNECT] pk_ecommerce_db.pk_ecommerce_dev (local SQLite: pk_ecommerce.db)
+  Rows returned: 2
+  Sample: {'L_ORDERKEY': 1, 'L_PARTKEY': 10, 'L_SUPPKEY': 4, 'L_LINENUMBER': 1, 'L_QUANTITY': 3.0, 'L_EXTENDEDPRICE': 141573.9, 'L_DISCOUNT': 0.1, 'L_TAX': 0.05, 'L_RETURNFLAG': 'A', 'L_LINESTATUS': 'F', 'L_SHIPDATE': '2023-05-13', 'L_COMMITDATE': '2023-04-28', 'L_RECEIPTDATE': '2023-05-14', 'L_SHIPINSTRUCT': 'TAKE BACK RETURN', 'L_SHIPMODE': 'SEA', 'L_COURIER': 'M&P Express', 'L_COMMENT': 'Movement people service crime.'}
+
+── 5. PySpark orders transform (pyspark_orders_transform.py) ──
+  [CONNECT] pk_ecommerce_db.pk_ecommerce_dev (local SQLite: pk_ecommerce.db)
+  Aggregated 4336 shipmode/courier/date combinations.
+L_SHIPMODE     L_COURIER L_SHIPDATE  TOTAL_REVENUE_PKR  ORDER_COUNT
+      ROAD           TCS 2023-08-23        14428854.52            6
+      RAIL Pakistan Post 2023-10-12        11046411.28            4
+       SEA         Swyft 2023-12-30        10982926.00            2
+       AIR           TCS 2023-11-11        10891201.26            8
+       AIR         Swyft 2024-05-04        10648263.58            4
+  [WRITE-BACK] AGGREGATED_DAILY_SALES → C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\local_db\pk_ecommerce.db
+
+✅  All AWS Python demos complete.

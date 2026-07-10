@@ -1,0 +1,44 @@
+C:\Users\DataEng\Desktop\aws_snowflake\aws_snowflake_data_eng\10_governance_security\governance.py:135: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts   = datetime.utcnow().isoformat()
+
+🔒  Data Governance & Security Demo (Pakistan Ecommerce)
+───────────────────────────────────────────────────────
+
+── Column-Level Masking by Role ──
+  [ROLE] USE ROLE accountadmin
+
+  Role=accountadmin  (3 rows visible):
+    Ahmed Bugti               CNIC=26049-4744854-3  Phone=0333-2719583  Province=KPK
+    Sohail Bhatti             CNIC=11952-2571945-4  Phone=0303-9478454  Province=Sindh
+    Hina Hashmi               CNIC=28231-1109031-3  Phone=0333-8090293  Province=Punjab
+  [ROLE] USE ROLE reporting_intern
+
+  Role=reporting_intern  (3 rows visible):
+    Ahmed Bugti               CNIC=***-*******-*  Phone=03**-*******  Province=KPK
+    Sohail Bhatti             CNIC=***-*******-*  Phone=03**-*******  Province=Sindh
+    Hina Hashmi               CNIC=***-*******-*  Phone=03**-*******  Province=Punjab
+  [ROLE] USE ROLE punjab_regional_admin
+
+  Role=punjab_regional_admin  (3 rows visible):
+    Hina Hashmi               CNIC=28231-1109031-3  Phone=0333-8090293  Province=Punjab
+    Mariam Ahmed              CNIC=16338-7022674-6  Phone=0331-5437923  Province=Punjab
+    Pervaiz Rana              CNIC=46178-5918715-6  Phone=0331-4226067  Province=Punjab
+
+── Row-Level Access Policy ──
+  Role=sysadmin                  sees provinces: ['Sindh', 'Punjab', 'KPK']
+  Role=sindh_regional_admin      sees provinces: ['Sindh']
+  Role=punjab_regional_admin     sees provinces: ['Punjab']
+
+── Time-Travel Demo ──
+  [SNAPSHOT] CUSTOMER @ 2026-07-10T17:16:03  (500 rows captured)
+  After DELETE: CUSTOMER has 464 rows
+  [RESTORE] CUSTOMER_RESTORED created with 500 rows from snapshot @ 2026-07-10T17:16:03
+  CUSTOMER_RESTORED has 500 rows (Balochistan rows recovered)
+  After restore-merge: CUSTOMER has 500 rows
+
+── Data Retention Policy (reference) ──
+  ALTER TABLE LINEITEM SET data_retention_time_in_days = 30;
+  ALTER TABLE ORDERS   SET data_retention_time_in_days = 30;
+  (Snowflake time-travel window = 30 days for production tables)
+
+✅  Governance & Security demo complete.

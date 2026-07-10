@@ -1,0 +1,43 @@
+
+📡  Streams & CDC Demo (Pakistani Telecom Subscribers)
+──────────────────────────────────────────────────
+  [SETUP] Stream tables and triggers created.
+  [INSERT] 8 subscribers inserted → stream captured
+
+── Step 1: Read standard delta stream (all actions) ──
+
+  [STREAM] SUBSCRIBERS_STD_STREAM  (0 records):
+
+── Step 2: Consume stream transactionally → route to prod tables ──
+
+  [TASK] Consuming stream in transaction → PREPAID / POSTPAID prod tables
+  [COMMIT] Transaction committed — stream offset advanced
+
+── Step 3: Update subscriber fees (simulate CDC) ──
+  [UPDATE] Subscriber 2 fee → 1000 PKR  (delta stream captured)
+  [UPDATE] Subscriber 4 fee → 1500 PKR  (delta stream captured)
+
+── Step 4: Check delta stream for updates ──
+
+  [STREAM] SUBSCRIBERS_STD_STREAM  (2 records  filter=UPDATE):
+    {'STREAM_ID': 17, 'ID': 2, 'NAME': 'Fatima Malik', 'PHONE': '0321-7654321', 'CITY': 'Lahore', 'PLAN_TYPE': 'postpaid', 'MONTHLY_FEE': 1000.0, 'METADATA_ACTION': 'UPDATE', 'CAPTURED_AT': '2026-07-10 17:14:53'}
+    {'STREAM_ID': 18, 'ID': 4, 'NAME': 'Ayesha Qureshi', 'PHONE': '0311-2222222', 'CITY': 'Rawalpindi', 'PLAN_TYPE': 'postpaid', 'MONTHLY_FEE': 1500.0, 'METADATA_ACTION': 'UPDATE', 'CAPTURED_AT': '2026-07-10 17:14:53'}
+
+── Step 5: Merge updates into production tables ──
+  [MERGE] 2 updates merged into SUBSCRIBERS_POSTPAID_PROD
+
+── Step 6: Verify production tables ──
+
+  [SUBSCRIBERS_PREPAID_PROD]  4 rows:
+    {'ID': 1, 'NAME': 'Ahmed Khan', 'PHONE': '0300-1234567', 'CITY': 'Karachi', 'MONTHLY_FEE': 200.0}
+    {'ID': 3, 'NAME': 'Usman Chaudhry', 'PHONE': '0333-1111111', 'CITY': 'Islamabad', 'MONTHLY_FEE': 200.0}
+    {'ID': 5, 'NAME': 'Bilal Ahmed', 'PHONE': '0345-3333333', 'CITY': 'Peshawar', 'MONTHLY_FEE': 200.0}
+    {'ID': 7, 'NAME': 'Tariq Mirza', 'PHONE': '0312-5555555', 'CITY': 'Faisalabad', 'MONTHLY_FEE': 150.0}
+
+  [SUBSCRIBERS_POSTPAID_PROD]  4 rows:
+    {'ID': 2, 'NAME': 'Fatima Malik', 'PHONE': '0321-7654321', 'CITY': 'Lahore', 'MONTHLY_FEE': 1000.0}
+    {'ID': 4, 'NAME': 'Ayesha Qureshi', 'PHONE': '0311-2222222', 'CITY': 'Rawalpindi', 'MONTHLY_FEE': 1500.0}
+    {'ID': 6, 'NAME': 'Zainab Hussain', 'PHONE': '0302-4444444', 'CITY': 'Multan', 'MONTHLY_FEE': 600.0}
+    {'ID': 8, 'NAME': 'Sara Baig', 'PHONE': '0346-6666666', 'CITY': 'Sialkot', 'MONTHLY_FEE': 900.0}
+
+✅  CDC demo complete.
